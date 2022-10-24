@@ -1,6 +1,7 @@
 <!-- 
  * Created by Jayant Bramhankar (www.sahyadritechnologies.com) 
  * Youtube Channel - https://www.youtube.com/channel/UCPSeFaxM6ni_HGpfkb3Kwbw;
+ * License - Free to use -->
 
  <!DOCTYPE html>
 <html>
@@ -21,83 +22,54 @@
 			<div class="login-container">
                 
 				<h3>Login to your account</h3>
-				<form>
+				<form action="#">
 					<div class="form-control">
-						<input type="text" class="username" name="Username" placeholder="Username" required="">
+					  <input type="email" class="username" id="email" placeholder="Username" name="email" required="">
 					</div>
 					<div class="form-control">
-						<input type="password" class="password" name="Password" placeholder="Password" required="">
-					</div>
-					<input type="submit" class="button-submit " name="submit">
-				</form>
+					  <input type="password" class="password" id="psw" placeholder="Password" name="pwd" required="">
+					</div>	   
+					<button type="button" onclick="saveData()" id="save_btn" class="button-submit">Submit</button>
+				  </form>
 			</div>
 		</div>
 
 	</div>
+
+<strong><h3>Not a member yet?</h3></strong>
+<a href="www/localstorage-part2.html">
+    <button>Create an account!</button>
+ </a>
 </body>
+<script>
+	let name=localStorage.getItem('name')?localStorage.getItem('name'):''
+   console.log(name);
+   if(name!='')
+   {
+	 alert('Please visit profile');
+	 window.location.href="profile.html";
+   }
+function saveData()
+{
+let email,psw;
+email=document.getElementById("email").value;
+
+psw=document.getElementById("psw").value;
+
+let user_records=new Array();
+user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+if(user_records.some((v)=>{return v.email==email && v.psw==psw}))
+{
+alert("Login Pass");
+let current_user=user_records.filter((v)=>{return v.email==email && v.psw==psw})[0]
+localStorage.setItem('name',current_user.name);
+localStorage.setItem('email',current_user.email);
+window.location.href="profile.html"
+}
+else
+{
+alert('Login Fail');
+}
+}
+</script>
 </html>
- * License - Free to use -->
-
-
-
-
-
-
-<span class="hljs-meta"><!DOCTYPE html></span>
-<span class="hljs-tag"><<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>></span>
-
-<span class="hljs-tag"><<span class="hljs-name">head</span>></span>
-    <span class="hljs-tag"><<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>></span>
-    <span class="hljs-tag"><<span class="hljs-name">title</span>></span>Geo Location<span class="hljs-tag"></<span class="hljs-name">title</span>></span>
-    <span class="hljs-tag"><<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>></span><span class="css">
-        <span class="hljs-selector-tag">html</span> {
-            <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>
-        }
-
-        <span class="hljs-selector-tag">body</span> {
-            <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>;
-            <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
-            <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>
-        }
-
-        <span class="hljs-selector-id">#map-canvas</span> {
-            <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span>
-        }
-    </span><span class="hljs-tag"></<span class="hljs-name">style</span>></span>
-    <span class="hljs-tag"><<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"cordova.js"</span>></span><span class="hljs-tag"></<span class="hljs-name">script</span>></span>
-    <span class="hljs-tag"><<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://maps.google.com/maps/api/js"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>></span><span class="hljs-tag"></<span class="hljs-name">script</span>></span>
-    <span class="hljs-tag"><<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>></span><span class="javascript">
-        navigator.geolocation.getCurrentPosition(onSuccess, onError, {
-            <span class="hljs-attr">timeout</span>: <span class="hljs-number">30000</span>
-        });
-
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onSuccess</span>(<span class="hljs-params">position</span>) </span>{
-            <span class="hljs-keyword">var</span> lat = position.coords.latitude;
-            <span class="hljs-keyword">var</span> lang = position.coords.longitude;
-
-            <span class="hljs-comment">//Google Maps</span>
-            <span class="hljs-keyword">var</span> myLatlng = <span class="hljs-keyword">new</span> google.maps.LatLng(lat, lang);
-            <span class="hljs-keyword">var</span> mapOptions = {
-                <span class="hljs-attr">zoom</span>: <span class="hljs-number">4</span>,
-                <span class="hljs-attr">center</span>: myLatlng
-            }
-            <span class="hljs-keyword">var</span> map = <span class="hljs-keyword">new</span> google.maps.Map(<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'map-canvas'</span>), mapOptions);
-            <span class="hljs-keyword">var</span> marker = <span class="hljs-keyword">new</span> google.maps.Marker({
-                <span class="hljs-attr">position</span>: myLatlng,
-                <span class="hljs-attr">map</span>: map
-            });
-        }
-
-        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onError</span>(<span class="hljs-params">error</span>) </span>{
-            alert(<span class="hljs-string">'code: '</span> + error.code + <span class="hljs-string">'\n'</span> +
-                <span class="hljs-string">'message: '</span> + error.message + <span class="hljs-string">'\n'</span>);
-        }
-        google.maps.event.addDomListener(<span class="hljs-built_in">window</span>, <span class="hljs-string">'load'</span>, onSuccess);
-    </span><span class="hljs-tag"></<span class="hljs-name">script</span>></span>
-<span class="hljs-tag"></<span class="hljs-name">head</span>></span>
-
-<span class="hljs-tag"><<span class="hljs-name">body</span>></span>
-    <span class="hljs-tag"><<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"map-canvas"</span>></span><span class="hljs-tag"></<span class="hljs-name">div</span>></span>
-<span class="hljs-tag"></<span class="hljs-name">body</span>></span>
-
-<span class="hljs-tag"></<span class="hljs-name">html</span>></span>
