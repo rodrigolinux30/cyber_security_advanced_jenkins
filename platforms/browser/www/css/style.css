@@ -1,0 +1,171 @@
+/*!
+ * Created by Jayant Bramhankar (www.sahyadritechnologies.com) 
+ * Youtube Channel - https://www.youtube.com/channel/UCPSeFaxM6ni_HGpfkb3Kwbw;
+ * License - Free to use
+ */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800,700,300);
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+*, *:after, *:before {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    position: relative;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body
+{
+  background: #fcfcfc;
+	
+    height: 100%;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+}
+
+
+.container
+{
+  margin: 0px auto;
+  padding: 0;
+}
+
+.app
+{
+  background: #fff;  
+  min-height: 640px;
+  box-shadow: inset 20px 0px 00px rgba(244, 215, 66,0.3);
+  overflow: hidden;
+  background: transparent;
+}
+.shape-circle{
+	position: absolute;
+	top:45%;
+	right: 0;
+	background: rgba(244, 215, 66,0.5);
+  width: 180px;
+	height: 160px;
+	border-top-left-radius: 50%;
+	border-bottom-left-radius: 50%;
+  animation: shapeanimate 1s ease-in;
+}
+
+.page-heading
+{ 
+  font-size: 2em;
+  margin: 60px 0 5px 30px;
+  font-family: 'Open Sans', sans-serif;
+  color: #555;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 2em;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 40px;
+  text-shadow: #f0f0f0 2px 2px 0;
+  border-bottom:1px solid #555;
+}
+
+.page-heading span{
+    border-bottom: 3px solid #ead109;
+    display: inline-block;
+    margin: 0 0 -2px 0;
+    padding: 5px 3px;
+}
+
+.page-heading i{
+  float: right;
+    padding: 10px;
+}
+
+
+.login-container{
+  background: transparent;
+  position: absolute;
+  top: 30%;
+  width: 100%;
+}
+.login-container h3{
+   font-size: 2em;
+  margin: 10px 0 85px 30px;
+  font-family: 'Open Sans', sans-serif;
+  color: #555;
+  text-decoration: none;
+  font-size: 1.6em;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-shadow: #f0f0f0 2px 2px 0;
+}
+
+.login-container .form-control{
+  position: relative;
+}
+
+.login-container .form-control input{
+  width: 60%;
+  padding: 15px 0 10px 25px;
+  letter-spacing: 1px;
+  font-size: 1em;
+  font-weight: 600;
+  color: #555;
+  border: 1px solid rgba(244, 215, 66,1);
+  border-left: 0px;
+  outline: none;
+  background: transparent;
+  background: rgba(244, 215, 66,0.6);
+}
+.login-container .form-control input:focus{
+  background: rgba(244, 215, 66,0.3);
+}
+.login-container .form-control input.username{
+  border-top-right-radius: 50px;
+  border-bottom:  1px solid rgba(244, 215, 66,1);
+}
+.login-container .form-control input.password{
+  border-bottom-right-radius: 50px;
+  border-top: 0px;
+}
+
+.button-submit{
+  position: absolute;
+  top: 152px;
+  right: 10px;
+  border:1px solid rgba(244, 214, 65, 1);
+  background: rgba(244, 214, 65, 0.7);
+  width: 100px;
+  padding: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 20%;
+  box-shadow: 4px 4px #f4c141;
+  color: #565454;
+}
+.button-submit:hover{
+  box-shadow: 4px 4px #d1a740;
+  color: #fff;
+}
+
+
+
+@keyframes shapeanimate{
+    0%{ 
+  background: rgba(244, 215, 66,0.3);}
+    25%{ 
+  background: rgba(244, 215, 66,0.5);}
+    50%{
+  background: rgba(244, 215, 66,0.7);}
+    75%{ 
+  background: rgba(244, 215, 66,0.9);} 
+    100%{
+  background: rgba(244, 215, 66,0.5);}
+}
