@@ -7,7 +7,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-   
+        <script>
+        function loginPage()
+        {
+            window.location = "index.html";
+        }
+        function homePage()
+        {
+            window.location = "login.html";
+        }
+        </script>
+
       </head>
       <body>
       
@@ -35,22 +45,10 @@
           </form>
         </div>
       </div>
-  
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-      
+      <button type="button" class="button-submit3" onclick="homePage()">Home</button>
+      <button type="button" class="button-submit3" onclick="loginPage()">Login</button>
       </body>
       <script>
 function saveData()

@@ -14,9 +14,13 @@
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script>
-	   function mainPage()
+	   function homePage()
         {
             window.location = "login.html";
+        }
+		function registerPage()
+        {
+            window.location = "localstorage-part2.html";
         }
 	</script>
 </head>
@@ -41,10 +45,8 @@
 		</div>
 
 	</div>
-
-<strong>Not a member yet?</strong>
-
-<button name="buttonClick" onclick="mainPage()">Return to main page</button>
+	<button type="button" class="button-submit3" onclick="homePage()">Home</button>
+	<button type="button" class="button-submit3" onclick="registerPage()">Register</button>
  
 
 </body>
