@@ -13,6 +13,12 @@
     <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script>
+	   function callAnothePage()
+        {
+            window.location = "localstorage-part2.html";
+        }
+	</script>
 </head>
 <body>
 	<div class="container">
@@ -36,10 +42,11 @@
 
 	</div>
 
-<strong><h3>Not a member yet?</h3></strong>
-<a href="www/localstorage-part2.html">
-    <button>Create an account!</button>
- </a>
+<strong>Not a member yet?</strong>
+
+<button name="buttonClick" onclick="callAnothePage()">Click Me!</button>
+ 
+
 </body>
 <script>
 	let name=localStorage.getItem('name')?localStorage.getItem('name'):''
@@ -70,6 +77,7 @@ else
 {
 alert('Login Fail');
 }
+
 }
 </script>
 </html>

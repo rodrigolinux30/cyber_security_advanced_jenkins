@@ -2,6 +2,7 @@
  * Created by Jayant Bramhankar (www.sahyadritechnologies.com) 
  * Youtube Channel - https://www.youtube.com/channel/UCPSeFaxM6ni_HGpfkb3Kwbw;
  * License - Free to use -->
+
  <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,12 @@
     <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script>
+	   function callAnothePage()
+        {
+            window.location = "localstorage-part2.html";
+        }
+	</script>
 </head>
 <body>
 	<div class="container">
@@ -21,18 +28,56 @@
 			<div class="login-container">
                 
 				<h3>Login to your account</h3>
-				<form>
+				<form action="#">
 					<div class="form-control">
-						<input type="text" class="username" name="Username" placeholder="Username" required="">
+					  <input type="email" class="username" id="email" placeholder="Email" name="email" required="">
 					</div>
 					<div class="form-control">
-						<input type="password" class="password" name="Password" placeholder="Password" required="">
-					</div>
-					<input type="submit" class="button-submit " name="submit">
-				</form>
+					  <input type="password" class="password" id="psw" placeholder="Password" name="pwd" required="">
+					</div>	   
+					<button type="button" onclick="saveData()" id="save_btn" class="button-submit">Submit</button>
+				  </form>
 			</div>
 		</div>
 
 	</div>
+
+<strong>Not a member yet?</strong>
+
+<button name="buttonClick" onclick="callAnothePage()">Click Me!</button>
+ 
+
 </body>
+<script>
+	let name=localStorage.getItem('name')?localStorage.getItem('name'):''
+   console.log(name);
+   if(name!='')
+   {
+	 alert('Please visit profile');
+	 window.location.href="profile.html";
+   }
+function saveData()
+{
+let email,psw;
+email=document.getElementById("email").value;
+
+psw=document.getElementById("psw").value;
+
+let user_records=new Array();
+user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+if(user_records.some((v)=>{return v.email==email && v.psw==psw}))
+{
+alert("Login Pass");
+let current_user=user_records.filter((v)=>{return v.email==email && v.psw==psw})[0]
+localStorage.setItem('name',current_user.name);
+localStorage.setItem('email',current_user.email);
+window.location.href="profile.html"
+}
+else
+{
+alert('Login Fail');
+}
+
+}
+</script>
 </html>
