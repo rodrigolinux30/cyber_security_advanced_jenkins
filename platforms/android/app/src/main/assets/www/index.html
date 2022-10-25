@@ -14,7 +14,11 @@
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script>
-	   function callAnothePage()
+	   function homePage()
+        {
+            window.location = "login.html";
+        }
+		function registerPage()
         {
             window.location = "localstorage-part2.html";
         }
@@ -24,7 +28,7 @@
 	<div class="container">
 		<div class="app">	
 			<div class="shape-circle"></div>
-			<center><h2 class="page-heading"><span>Welcome to Safe Biking</span><i class="fas fa-sign-in-alt"></i></h2></center>
+			<center><h2 class="page-heading">Welcome to Safe Biking<i class="fas fa-sign-in-alt"></i></h2></center>
 			<div class="login-container">
                 
 				<h3>Login to your account</h3>
@@ -41,10 +45,8 @@
 		</div>
 
 	</div>
-
-<strong>Not a member yet?</strong>
-
-<button name="buttonClick" onclick="callAnothePage()">Click Me!</button>
+	<button type="button" class="button-submit3" onclick="homePage()">Home</button>
+	<button type="button" class="button-submit3" onclick="registerPage()">Register</button>
  
 
 </body>

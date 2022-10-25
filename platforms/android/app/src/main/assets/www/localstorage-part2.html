@@ -7,14 +7,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-   
+        <script>
+        function loginPage()
+        {
+            window.location = "index.html";
+        }
+        function homePage()
+        {
+            window.location = "login.html";
+        }
+        </script>
+
       </head>
       <body>
       
       <div class="container">
         <div class="app">
           <div class="shape-circle"></div>
-          <center><h2 class="page-heading"><span>Registration Form</span><i class="fas fa-sign-in-alt"></i></h2></center>
+          <center><h2 class="page-heading">Registration Form<i class="fas fa-sign-in-alt"></i></h2></center>
           <div class="login-container">
            
             <form action="#">
@@ -35,22 +45,10 @@
           </form>
         </div>
       </div>
-  
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-      
+      <button type="button" class="button-submit3" onclick="homePage()">Home</button>
+      <button type="button" class="button-submit3" onclick="loginPage()">Login</button>
       </body>
       <script>
 function saveData()
