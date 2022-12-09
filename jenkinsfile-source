@@ -1,6 +1,11 @@
 pipeline {
-  agent any
+  agent {docker {image 'maven:3.3.3'}}
   stages {
+    stage('build') {
+      steps {
+        sh 'mvn clean package -Dcheckstyle.skip'
+      }
+    }
     stage('Generate SBOM') {
       steps {
         sh 'syft packages dir:. --scope AllLayers'
