@@ -3,7 +3,7 @@ pipeline {
     stages {
     stage('Generate SBOM') {
       steps {
-         sh  'syft app:${BUILD_NUMBER} --scope all-layers -o json > sbom-${BUILD_NUMBER}.json'
+         sh  'syft packages dir:. --scope AllLayers'
       }
     }
   }
