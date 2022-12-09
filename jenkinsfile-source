@@ -1,15 +1,8 @@
 pipeline {
   agent any
-  stages {
-    stage('build') {
-      steps {
-        sh 'mvn clean package -Dcheckstyle.skip'
-      }
-    }
     stage('Generate SBOM') {
       steps {
          sh  'syft app:${BUILD_NUMBER} --scope all-layers -o json > sbom-${BUILD_NUMBER}.json'
       }
     }
   }
-}
