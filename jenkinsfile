@@ -1,9 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('scan') {
+    stage('build') {
       steps {
-        sh "docker run -v /src --workdir /src returntocorp/semgrep-agent:v1 semgrep-agent --config p/ci --config p/security-audit --config p/secrets"
+        sh './mvnw clean package -Dcheckstyle.skip'
+      }
+    }
+    stage('Scan') {
+      steps {
+        sh 'grype dir:. --scope AllLayers'
       }
     }
   }
