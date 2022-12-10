@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Container vulnerability scan') {
+    stage('Create readme.md') {
       steps {
-        sh 'cordova run browser'
+        sh 'touch readme.md'
       }
     }
    }
