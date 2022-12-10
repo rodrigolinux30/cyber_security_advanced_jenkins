@@ -1,3 +1,6 @@
+pipeline {
+  agent any
+  stages {
 stage('Dependency Check Report') {
     steps {
         dependencyCheck additionalArguments: ''' 
@@ -6,5 +9,7 @@ stage('Dependency Check Report') {
             -f "ALL" 
             --prettyPrint''', odcInstallation: 'dependency-check-6.0.3'
         dependencyCheckPublisher pattern: 'dependency-check-report.xml'
-            }    
-}
+    }    
+   }
+   }
+  }
