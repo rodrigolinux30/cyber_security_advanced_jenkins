@@ -7,7 +7,7 @@ stage('Dependency Check Report') {
             -o "./" 
             -s "./"
             -f "ALL" 
-            --prettyPrint''', odcInstallation: 'dependency-check-6.0.3'
+            --prettyPrint''', odcInstallation: 'dependency-check 7.4.1'
         dependencyCheckPublisher pattern: 'dependency-check-report.xml'
     }    
    }
