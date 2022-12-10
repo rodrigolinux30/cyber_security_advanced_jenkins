@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Testing if application is opening correctly') {
       steps {
-            sh 'rm -r cyber_security_advanced_jenkin ; git clone https://github.com/rodrigolinux30/cyber_security_advanced_jenkins'
+            sh 'git clone https://github.com/rodrigolinux30/cyber_security_advanced_jenkins'
             sh 'cd cyber_security_advanced_jenkins'
             sh 'cordova run browser'
             sh 'google-chrome http://localhost:8000/login.html'
