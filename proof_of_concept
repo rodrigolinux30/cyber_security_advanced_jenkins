@@ -1,0 +1,10 @@
+pipeline {
+  agent any
+  stages {
+    stage('Secrets scan') {
+      steps {
+            sh 'trufflehog --regex --entropy False https://github.com/webpwnized/mutillidae'
+      }
+    }
+   }
+  }
