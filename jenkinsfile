@@ -1,15 +1,10 @@
 pipeline {
   agent any
   stages {
-    stage('build') {
-      steps {
-        sh 'mvn clean package -Dcheckstyle.skip'
-      }
-    }
-    stage('Scan') {
+    stage('Container vulnerability scan') {
       steps {
         sh 'grype dir:. --scope AllLayers'
       }
     }
+   }
   }
-}
